@@ -21,10 +21,12 @@
 #include "Base/DynamicBufferRing.h"
 #include "Base/Texture.h"
 
-namespace CAULDRON_DX12
-{
 #define SPD_MAX_MIP_LEVELS 12
 
+
+
+namespace CAULDRON_DX12
+{
     enum class SPDWaveOps
     {
         SPDNoWaveOps,
@@ -46,12 +48,27 @@ namespace CAULDRON_DX12
     class SPDCS
     {
     public:
-        void OnCreate(Device *pDevice, UploadHeap *pUploadHeap, ResourceViewHeaps *pResourceViewHeaps, DynamicBufferRing *pConstantBufferRing, 
+        void OnCreate(Device *pDevice, ResourceViewHeaps *pResourceViewHeaps, DynamicBufferRing *pConstantBufferRing, 
             SPDLoad spdLoad, SPDWaveOps spdWaveOps, SPDPacked spdPacked);
         void OnDestroy();
 
         void Draw(ID3D12GraphicsCommandList2 *pCommandList);
-        Texture *GetTexture() { return &m_cubeTexture; }
+
+        void CreateDisplayResources(Texture *t);
+
+        void SetTexture(Texture *t, bool display)
+        { 
+           if (display && (t != m_texture))
+            {
+               CreateDisplayResources(t);
+            }
+
+            m_texture = t; 
+        }
+
+
+        Texture *GetTexture() { return m_texture; }
+
         void GUI(int *pSlice);
 
         struct SpdConstants
@@ -70,16 +87,14 @@ namespace CAULDRON_DX12
             float padding[2];
         };
 
-    private:
-        Device                       *m_pDevice = nullptr;
 
-        Texture                       m_cubeTexture;
+        Device                       *m_pDevice = nullptr;
+    private:
+
+        Texture                       *m_texture;
 
         CBV_SRV_UAV                   m_constBuffer; // dimension
-        CBV_SRV_UAV                   m_UAV[SPD_MAX_MIP_LEVELS + 1]; //src + dest mips
         CBV_SRV_UAV                   m_SRV[SPD_MAX_MIP_LEVELS * 6]; // for display of mips using imGUI
-        CBV_SRV_UAV                   m_sourceSRV; // src
-
         CBV_SRV_UAV                   m_globalCounter;
         Texture                       m_globalCounterBuffer;
 
@@ -93,3 +108,15 @@ namespace CAULDRON_DX12
         SPDPacked                     m_spdPacked;
     };
 }
+
+
+    // Caller must persist this until the mipmap command list is known to be processed, which they may do by calling CommandQueue->Signal after associated ExecuteCommandList.
+   class Mipmap_View
+   {
+   public:
+      void Mipmap_View::Init(Texture *tex, ResourceViewHeaps *ResourceViewHeaps, SPDLoad spdLoad);
+
+      // Mipmap processing requirement
+      CAULDRON_DX12::CBV_SRV_UAV                   m_UAV[SPD_MAX_MIP_LEVELS + 1]; //src + dest mips
+      CAULDRON_DX12::CBV_SRV_UAV                   m_sourceSRV;
+   } ;

@@ -20,6 +20,7 @@
 #pragma once
 #include "SPDCS.h"
 
+
 namespace CAULDRON_DX12
 {
     class SPDVersions
@@ -33,11 +34,13 @@ namespace CAULDRON_DX12
         );
         void OnDestroy();
 
-        void Dispatch(ID3D12GraphicsCommandList2 *pCommandList, SPDLoad spdLoad, SPDWaveOps spdWaveOps, SPDPacked spdPacked);
+        void Dispatch(Texture *target, ID3D12GraphicsCommandList2 *pCommandList, SPDLoad spdLoad, SPDWaveOps spdWaveOps, SPDPacked spdPacked, bool display);
         void GUI(SPDLoad spdLoad, SPDWaveOps spdWaveOps, SPDPacked spdPacked, int *pSlice);
 
     private:
         Device                  *m_pDevice = nullptr;
+        ResourceViewHeaps *m_pResourceViewHeaps = nullptr;
+        DynamicBufferRing *m_pConstantBufferRing = nullptr;
 
         SPDCS                    m_spd_WaveOps_NonPacked;
         SPDCS                    m_spd_No_WaveOps_NonPacked;

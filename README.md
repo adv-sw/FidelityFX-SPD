@@ -25,8 +25,9 @@ FidelityFX Single Pass Downsampler (SPD) provides an RDNA-optimized solution for
 # Sample Build Instructions
 
 1. Clone submodules by running 'git submodule update --init --recursive' (so you get the Cauldron framework too)
-2. Run sample/build/GenerateSolutions.bat
-3. Open solution, build + run + have fun 😊
+2. cd [project]/sample/build
+3. run GenerateSolutions.bat
+3. Open solution, build + run + enjoy
 
 # SPD Files
 You can find them in ffx-spd

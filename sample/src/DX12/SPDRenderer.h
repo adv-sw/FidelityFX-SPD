@@ -98,6 +98,8 @@ private:
     uint32_t                        m_width;
     uint32_t                        m_height;
 
+    SPDLoad m_spd_load_state;
+
     D3D12_VIEWPORT                  m_viewPort;
     D3D12_RECT                      m_rectScissor;
 
@@ -119,6 +121,8 @@ private:
     SkyDome                         m_skyDome;
     SkyDomeProc                     m_skyDomeProc;
     ToneMapping                     m_toneMapping;
+
+    Texture *m_texture = nullptr;  // The thing we're mipmapping - a cubemap in current demo.
 
     // Downsampling
     PSDownsampler                   m_PSDownsampler;

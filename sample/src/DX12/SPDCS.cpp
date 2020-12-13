@@ -37,7 +37,6 @@ namespace CAULDRON_DX12
 {
     void SPDCS::OnCreate(
         Device *pDevice,
-        UploadHeap *pUploadHeap,
         ResourceViewHeaps *pResourceViewHeaps,
         DynamicBufferRing *pConstantBufferRing,
         SPDLoad spdLoad,
@@ -218,64 +217,15 @@ namespace CAULDRON_DX12
             ThrowIfFailed(pDevice->GetDevice()->CreateComputePipelineState(&descPso, IID_PPV_ARGS(&m_pPipeline)));
         }
 
-        m_cubeTexture.InitFromFile(pDevice, pUploadHeap, "..\\media\\envmaps\\papermill\\specular.dds", true, 1.0f, D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS);
-        pUploadHeap->FlushAndFinish();
-
         // Allocate descriptors for the mip chain
         //
         m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(1, &m_constBuffer);
 
-        if (m_spdLoad == SPDLoad::SPDLinearSampler)
-        {
-            m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(1, &m_sourceSRV);
-            m_cubeTexture.CreateSRV(0, &m_sourceSRV, 0, m_cubeTexture.GetArraySize(), 0);
-        }
-
-        uint32_t numUAVs = m_cubeTexture.GetMipCount();
-        if (m_spdLoad == SPDLoad::SPDLinearSampler)
-        {
-            // we need one UAV less because source texture will be bound as SRV and not as UAV
-            numUAVs = m_cubeTexture.GetMipCount() - 1;
-        }
-
-        m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(numUAVs, m_UAV);
-
-        // Create views for the mip chain
-        //
-        // destination 
-        //
-        for (uint32_t i = 0; i < numUAVs; i++)
-        {
-            D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc;
-            uavDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM; // can't create SRGB UAV
-            uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2DARRAY;
-            uavDesc.Texture2DArray.ArraySize = m_cubeTexture.GetArraySize();
-            uavDesc.Texture2DArray.FirstArraySlice = 0;
-            if (m_spdLoad == SPDLoad::SPDLinearSampler)
-            {
-                uavDesc.Texture2DArray.MipSlice = i + 1;
-            }
-            else {
-                uavDesc.Texture2DArray.MipSlice = i;
-            }
-            uavDesc.Texture2DArray.PlaneSlice = 0;
-
-            m_cubeTexture.CreateUAV(i, NULL, m_UAV, &uavDesc);
-        }
-
-        // for GUI
-        for (uint32_t slice = 0; slice < m_cubeTexture.GetArraySize(); slice++)
-        {
-            for (uint32_t mip = 0; mip < m_cubeTexture.GetMipCount(); mip++)
-            {
-                m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(1, &m_SRV[slice * m_cubeTexture.GetMipCount() + mip]);
-                m_cubeTexture.CreateSRV(0, &m_SRV[slice * m_cubeTexture.GetMipCount() + mip], mip, 1, slice);
-            }
-        }
+     
 
         m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(1, &m_globalCounter);
         m_globalCounterBuffer.InitBuffer(m_pDevice, "SPD_CS::m_globalCounterBuffer",
-            &CD3DX12_RESOURCE_DESC::Buffer(sizeof(uint32_t) * m_cubeTexture.GetArraySize(), // 6 slices
+            &CD3DX12_RESOURCE_DESC::Buffer(sizeof(uint32_t) * 6,   // max 6 slices for cubemap
                 D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS),
             sizeof(uint32_t), D3D12_RESOURCE_STATE_UNORDERED_ACCESS);
         m_globalCounterBuffer.CreateBufferUAV(0, NULL, &m_globalCounter);
@@ -284,7 +234,9 @@ namespace CAULDRON_DX12
     void SPDCS::OnDestroy()
     {
         m_globalCounterBuffer.OnDestroy();
-        m_cubeTexture.OnDestroy();
+
+        if (m_texture)
+           m_texture->OnDestroy();
 
         if (m_pPipeline != NULL)
         {
@@ -299,6 +251,20 @@ namespace CAULDRON_DX12
         }
     }
 
+
+    void SPDCS::CreateDisplayResources(Texture *t)
+    {
+        // for GUI
+        for (uint32_t slice = 0; slice < t->GetArraySize(); slice++)
+        {
+            for (uint32_t mip = 0; mip < t->GetMipCount(); mip++)
+            {
+                m_pResourceViewHeaps->AllocCBV_SRV_UAVDescriptor(1, &m_SRV[slice * t->GetMipCount() + mip]);
+                t->CreateSRV(0, &m_SRV[slice * t->GetMipCount() + mip], mip, 1, slice);
+            }
+        }
+   }
+
     void SPDCS::Draw(ID3D12GraphicsCommandList2 *pCommandList)
     {
         UserMarker marker(pCommandList, "SPDCS");
@@ -306,13 +272,13 @@ namespace CAULDRON_DX12
         varAU2(dispatchThreadGroupCountXY);
         varAU2(workGroupOffset); // needed if Left and Top are not 0,0
         varAU2(numWorkGroupsAndMips);
-        varAU4(rectInfo) = initAU4(0, 0, m_cubeTexture.GetWidth(), m_cubeTexture.GetHeight()); // left, top, width, height
+        varAU4(rectInfo) = initAU4(0, 0, m_texture->GetWidth(), m_texture->GetHeight()); // left, top, width, height
         SpdSetup(dispatchThreadGroupCountXY, workGroupOffset, numWorkGroupsAndMips, rectInfo);
 
         // downsample
         uint32_t dispatchX = dispatchThreadGroupCountXY[0];
         uint32_t dispatchY = dispatchThreadGroupCountXY[1];
-        uint32_t dispatchZ = m_cubeTexture.GetArraySize();
+        uint32_t dispatchZ = m_texture->GetArraySize();
 
         D3D12_GPU_VIRTUAL_ADDRESS cbHandle;
         uint32_t* pConstMem;
@@ -324,8 +290,8 @@ namespace CAULDRON_DX12
             constants.mips = numWorkGroupsAndMips[1];
             constants.workGroupOffset[0] = workGroupOffset[0];
             constants.workGroupOffset[1] = workGroupOffset[1];
-            constants.invInputSize[0] = 1.0f / m_cubeTexture.GetWidth();
-            constants.invInputSize[1] = 1.0f / m_cubeTexture.GetHeight();
+            constants.invInputSize[0] = 1.0f / m_texture->GetWidth();
+            constants.invInputSize[1] = 1.0f / m_texture->GetHeight();
             memcpy(pConstMem, &constants, sizeof(SpdLinearSamplerConstants));
         }
         else {
@@ -351,17 +317,17 @@ namespace CAULDRON_DX12
         pCommandList->SetComputeRootDescriptorTable(params++, m_globalCounter.GetGPU());
         if (m_spdLoad == SPDLoad::SPDLinearSampler)
         {
-            pCommandList->SetComputeRootDescriptorTable(params++, m_UAV[0].GetGPU(5));
+            pCommandList->SetComputeRootDescriptorTable(params++, m_texture->m_mipview->m_UAV[0].GetGPU(5));
         }
         else {
-            pCommandList->SetComputeRootDescriptorTable(params++, m_UAV[0].GetGPU(6));
+            pCommandList->SetComputeRootDescriptorTable(params++, m_texture->m_mipview->m_UAV[0].GetGPU(6));
         }
         // bind UAVs
-        pCommandList->SetComputeRootDescriptorTable(params++, m_UAV[0].GetGPU());
+        pCommandList->SetComputeRootDescriptorTable(params++, m_texture->m_mipview->m_UAV[0].GetGPU());
 
         // bind SRV
         if (m_spdLoad == SPDLoad::SPDLinearSampler) {
-            pCommandList->SetComputeRootDescriptorTable(params++, m_sourceSRV.GetGPU());
+            pCommandList->SetComputeRootDescriptorTable(params++, m_texture->m_mipview->m_sourceSRV.GetGPU());
         }
         // Bind Pipeline
         //
@@ -379,14 +345,14 @@ namespace CAULDRON_DX12
 
         D3D12_RESOURCE_BARRIER resourceBarriers[2] = {
             CD3DX12_RESOURCE_BARRIER::Transition(m_globalCounterBuffer.GetResource(), D3D12_RESOURCE_STATE_COPY_DEST, D3D12_RESOURCE_STATE_UNORDERED_ACCESS, 0),
-            CD3DX12_RESOURCE_BARRIER::Transition(m_cubeTexture.GetResource(), D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE, D3D12_RESOURCE_STATE_UNORDERED_ACCESS)
+            CD3DX12_RESOURCE_BARRIER::Transition(m_texture->GetResource(), D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE, D3D12_RESOURCE_STATE_UNORDERED_ACCESS)
         };
         pCommandList->ResourceBarrier(2, resourceBarriers);
 
         // Dispatch
         //
         pCommandList->Dispatch(dispatchX, dispatchY, dispatchZ);
-        pCommandList->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(m_cubeTexture.GetResource(), D3D12_RESOURCE_STATE_UNORDERED_ACCESS, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE));
+        pCommandList->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(m_texture->GetResource(), D3D12_RESOURCE_STATE_UNORDERED_ACCESS, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE));
     }
 
     void SPDCS::GUI(int *pSlice)
@@ -432,9 +398,9 @@ namespace CAULDRON_DX12
             };
             ImGui::Combo("Slice of Cube Texture", pSlice, sliceItemNames, _countof(sliceItemNames));
 
-            for (uint32_t i = 0; i < m_cubeTexture.GetMipCount(); i++)
+            for (uint32_t i = 0; i < m_texture->GetMipCount(); i++)
             {
-                ImGui::Image((ImTextureID)&m_SRV[*pSlice * m_cubeTexture.GetMipCount() + i], ImVec2(static_cast<float>(512 >> i), static_cast<float>(512 >> i)));
+                ImGui::Image((ImTextureID)&m_SRV[*pSlice * m_texture->GetMipCount() + i], ImVec2(static_cast<float>(512 >> i), static_cast<float>(512 >> i)));
             }
         }
 

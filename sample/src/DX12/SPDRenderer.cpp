@@ -21,6 +21,9 @@
 
 #include "SPDRenderer.h"
 
+
+Mipmap_View *Ext_Mipmaps_Create(Texture *t,  ResourceViewHeaps *rh, SPDLoad spd_load);
+
 //--------------------------------------------------------------------------------------
 //
 // OnCreate
@@ -79,8 +82,16 @@ void SPDRenderer::OnCreate(Device *pDevice, SwapChain *pSwapChain)
     m_CSDownsampler.OnCreate(pDevice, &m_uploadHeap, &m_resourceViewHeaps, &m_constantBufferRing);
     m_SPDVersions.OnCreate(pDevice, &m_uploadHeap, &m_resourceViewHeaps, &m_constantBufferRing);
 
+    // Load texture we're going to generate mipmaps for in our interactive demo app.
+    m_texture = new Texture;
+    m_texture->InitFromFile(pDevice, &m_uploadHeap, "..\\media\\envmaps\\papermill\\specular.dds", true, 1.0f, D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS);
+    m_uploadHeap.FlushAndFinish();
+    
     // Create tonemapping pass
     m_toneMapping.OnCreate(pDevice, &m_resourceViewHeaps, &m_constantBufferRing, &m_vidMemBufferPool, pSwapChain->GetFormat());
+
+
+
 
     // Initialize UI rendering resources
     m_imGUI.OnCreate(pDevice, &m_uploadHeap, &m_resourceViewHeaps, &m_constantBufferRing, pSwapChain->GetFormat());
@@ -332,6 +343,20 @@ void SPDRenderer::UnloadScene()
 //--------------------------------------------------------------------------------------
 void SPDRenderer::OnRender(State *pState, SwapChain *pSwapChain)
 {
+   if (!m_texture->m_mipview)
+   {
+      m_texture->m_mipview = Ext_Mipmaps_Create(m_texture, &m_resourceViewHeaps, pState->spdLoad);
+      m_spd_load_state = pState->spdLoad;
+   }
+   else
+   {
+      // TODO: When pState->spdLoad changes, Delete & recreate mipview.
+
+      if (m_spd_load_state != pState->spdLoad)
+         assert(false); // TODO
+   }
+
+   
     // Timing values
     //
     UINT64 gpuTicksPerSecond;
@@ -540,7 +565,7 @@ void SPDRenderer::OnRender(State *pState, SwapChain *pSwapChain)
             m_CSDownsampler.GUI(&pState->downsamplerImGUISlice);
             break;
         case Downsampler::SPDCS:
-            m_SPDVersions.Dispatch(pCmdLst1, pState->spdLoad, pState->spdWaveOps, pState->spdPacked);
+            m_SPDVersions.Dispatch(m_texture, pCmdLst1, pState->spdLoad, pState->spdWaveOps, pState->spdPacked, true);
             m_SPDVersions.GUI(pState->spdLoad, pState->spdWaveOps, pState->spdPacked, &pState->downsamplerImGUISlice);
             break;
         }
