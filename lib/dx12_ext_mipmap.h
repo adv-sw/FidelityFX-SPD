@@ -1,4 +1,4 @@
-// SPDSample
+// DX12 Extension: Mipmap Generation.
 //
 // Copyright (c) 2020 Advance Software Limited. All rights reserved.
 // Permission is hereby granted, free of charge, to any person obtaining a copy

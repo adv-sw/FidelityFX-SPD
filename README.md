@@ -1,3 +1,49 @@
+# DirectX12 Extension: Mipmap Generation.
+Copyright (c) 2020 Advance Software Limited. All rights reserved. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+Implements mipmap extension using a modified AMD FidelityFX SPD.
+
+Interface as follows, defined in lib/dx12_ext_mipmap.h
+
+DX12_EXTENSION_API Mipmap_View *Ext_Mipmaps_Generate(ID3D12GraphicsCommandList2 *cl, ID3D12Resource *target,  Mipmap_View *current = nullptr);
+
+Generate mipmaps for specified resource (2d texture or cubemap), returning a view required to complete processing. Persist the view and pass in next run for dynamic textures or delete it using Ext_Mipmaps_Delete when you've executed the command list mip generation has been defined in.
+
+DX12_EXTENSION_API void Ext_Mipmaps_Delete(Mipmap_View *mipview);
+
+Delete a mipmap view when no longer required for example, once the command list that created the mipmaps for your resource has executed.
+
+DX12_EXTENSION_API void Ext_Mipmaps_Terminate();
+
+Terminate & clean up mip map extension resources. This can be done at application exit for a clean shutdown.
+
+
+Usage : Ensure your texture resources are created with the required mip chain and have D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS specified to allow mip generation to proceed.
+
+
+#To build
+
+Future work :
+
+1. Implement Vulkan equivalent.
+2. Merge into AMD trunk implementation.
+3. Optimizations.
+4. Pass in configuration options to support a wider range of uses.
+5. Update cmake files to support library mode.
+
+# Build Instructions
+
+1. Build as per AMD FidelityFX SPD instructions below - this should result in an interactive test app.
+2. Modify project settings from app to DLL & create your DLL & import library wherever you want them.
+3. Link import library into your app & call API functions to generate mips for your textures.
+4. Place shader assets in your app root directory or precompile & link shader some other way - you have the source.
+
+
+
+
+
+
 # FidelityFX SPD
 Copyright (c) 2020 Advanced Micro Devices, Inc. All rights reserved. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
@@ -22,7 +68,7 @@ FidelityFX Single Pass Downsampler (SPD) provides an RDNA-optimized solution for
 - Uses optionally subgroup operations / SM6+ wave operations, which can provide faster performance.
 - Supports downsampling of a sub-rectangle from the source texture: useful for atlas textures in which only a known region got updated
 
-# Sample Build Instructions
+# Build Instructions
 
 1. Clone submodules by running 'git submodule update --init --recursive' (so you get the Cauldron framework too)
 2. cd [project]/sample/build
