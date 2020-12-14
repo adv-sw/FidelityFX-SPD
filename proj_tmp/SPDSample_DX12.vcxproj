@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Lib_Debug|x64">
+      <Configuration>Lib_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Lib_Release|x64">
+      <Configuration>Lib_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C2A639C3-B498-3FA0-9BCD-FDF92C5E840A}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>MipmapGen_DX12</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SPDSample_DX12.dir\Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">SPDSample_DX12.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SPDSample_DX12</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">MipmapGen_DX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SPDSample_DX12.dir\Release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">SPDSample_DX12.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SPDSample_DX12</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">MipmapGen_DX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SPDSample_DX12.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">SPDSample_DX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:/dev/amd/FidelityFX-SPD/sample/bin</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SPDSample_DX12.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SPDSample_DX12</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>setlocal
+mt.exe -manifest "Z:/dev/amd/FidelityFX-SPD/sample/src/DX12\dpiawarescaling.manifest" -inputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1 -outputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\Debug\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\Debug\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\Debug\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/Debug/SPDSample_DX12.lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>copy $(TargetPath) z:\build\infinity</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\Debug\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\Debug\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\Debug\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/lib/Debug/$(ProjectName).lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>setlocal
+mt.exe -manifest "Z:/dev/amd/FidelityFX-SPD/sample/src/DX12\dpiawarescaling.manifest" -inputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1 -outputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\Release\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\Release\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\Release\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/Release/SPDSample_DX12.lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>copy $(TargetPath) d:\build\infinity</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\Release\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\Release\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\Release\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/lib/$(ProjectName).lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>setlocal
+mt.exe -manifest "Z:/dev/amd/FidelityFX-SPD/sample/src/DX12\dpiawarescaling.manifest" -inputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1 -outputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\MinSizeRel\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\MinSizeRel\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\MinSizeRel\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/MinSizeRel/SPDSample_DX12.lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\..\..\..\ffx-spd;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\DX12;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\src\common;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\json;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\d3d12x;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\libs\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Adding display aware manifest...</Message>
+      <Command>setlocal
+mt.exe -manifest "Z:/dev/amd/FidelityFX-SPD/sample/src/DX12\dpiawarescaling.manifest" -inputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1 -outputresource:"Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.exe";#1
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>..\..\libs\cauldron\src\DX12\RelWithDebInfo\Cauldron_DX12.lib;..\..\libs\cauldron\libs\imgui\RelWithDebInfo\ImGUI.lib;..\..\..\..\libs\cauldron\libs\AGS\amd_ags_x64.lib;dxcompiler.lib;d3dcompiler.lib;D3D12.lib;..\..\libs\cauldron\src\common\RelWithDebInfo\Cauldron_Common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/RelWithDebInfo/SPDSample_DX12.lib</ImportLibrary>
+      <ProgramDataBaseFile>Z:/dev/amd/FidelityFX-SPD/sample/bin/SPDSample_DX12.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\ffx-spd\ffx_a.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating ffx_a.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_a.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_a.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\ffx-spd\ffx_spd.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating ffx_spd.h into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../../../ffx-spd/ffx_spd.h Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\ffx_spd.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\CSDownsampler.hlsl">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating CSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\CSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\PSDownsampler.hlsl">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating PSDownsampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/PSDownsampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\PSDownsampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDIntegration.hlsl">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating SPDIntegration.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegration.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegration.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDIntegrationLinearSampler.hlsl">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating SPDIntegrationLinearSampler.hlsl into Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/SPDIntegrationLinearSampler.hlsl Z:/dev/amd/FidelityFX-SPD/sample/bin/ShaderLibDX
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\ShaderLibDX\SPDIntegrationLinearSampler.hlsl</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\Common\SpdSample.json">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Updating SpdSample.json into Z:/dev/amd/FidelityFX-SPD/sample/bin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cmake -E make_directory Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+cmake -E copy Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/../Common/SpdSample.json Z:/dev/amd/FidelityFX-SPD/sample/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\bin\SpdSample.json</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Lib_Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule Z:/dev/amd/FidelityFX-SPD/sample/src/DX12/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SZ:/dev/amd/FidelityFX-SPD/sample -BZ:/dev/amd/FidelityFX-SPD/sample/build/DX12 --check-stamp-file Z:/dev/amd/FidelityFX-SPD/sample/build/DX12/src/DX12/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\common.cmake;Z:\dev\amd\FidelityFX-SPD\sample\libs\cauldron\common.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\src\DX12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\CSDownsampler.cpp" />
+    <ClInclude Include="..\..\..\..\..\lib\dx12_ext_mipmap.h" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\CSDownsampler.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\PSDownsampler.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\PSDownsampler.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDCS.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDCS.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDVersions.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDVersions.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDSample.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDSample.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDRenderer.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\SPDRenderer.h" />
+    <ClCompile Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\stdafx.cpp" />
+    <ClInclude Include="Z:\dev\amd\FidelityFX-SPD\sample\src\DX12\stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\ZERO_CHECK.vcxproj">
+      <Project>{D43B7259-733A-3385-A4EE-6B10EE5E6E2C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\libs\cauldron\src\common\Cauldron_Common.vcxproj">
+      <Project>{9CF01629-787A-3C03-96AB-A2F198684EDB}</Project>
+      <Name>Cauldron_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\libs\cauldron\src\DX12\Cauldron_DX12.vcxproj">
+      <Project>{8E50E528-A076-3BDB-9BBC-17168E381866}</Project>
+      <Name>Cauldron_DX12</Name>
+    </ProjectReference>
+    <ProjectReference Include="Z:\dev\amd\FidelityFX-SPD\sample\build\DX12\libs\cauldron\libs\imgui\ImGUI.vcxproj">
+      <Project>{C98D70D6-2C16-36DE-831D-FC798B64A425}</Project>
+      <Name>ImGUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
