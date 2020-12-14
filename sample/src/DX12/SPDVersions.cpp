@@ -366,22 +366,22 @@ DX12_EXTENSION_API Mipmap_View *Ext_Mipmaps_Generate(ID3D12GraphicsCommandList2 
        __api._mipmap_engine->OnCreate(&__api._device, nullptr, &__api._resourceViewHeaps, &__api._constantBufferRing);
    }
 
-   SPDLoad spd_load = SPDLoad::SPDLoad;
-
-   Mipmap_View *mipview = current ? current : new Mipmap_View;
-
-   __api._tex.m_mipview = mipview;
-
-   if (!current)
-      mipview->Init(&__api._tex, &__api._resourceViewHeaps, spd_load);
-
-   __api._tex.SetResource(target);
    D3D12_RESOURCE_DESC rdesc = target->GetDesc();
    __api._tex.m_header.width = rdesc.Width;
    __api._tex.m_header.height = rdesc.Height;
    __api._tex.m_header.mipMapCount = rdesc.MipLevels;
    __api._tex.m_header.arraySize = rdesc.DepthOrArraySize;
    __api._tex.m_header.format = rdesc.Format;
+
+   Mipmap_View *mipview = current ? current : new Mipmap_View;
+
+   __api._tex.m_mipview = mipview;
+   __api._tex.SetResource(target);
+
+   SPDLoad spd_load = SPDLoad::SPDLoad;
+
+   if (!current)
+      mipview->Init(&__api._tex, &__api._resourceViewHeaps, spd_load);
 
    __api._mipmap_engine->Dispatch(&__api._tex, cmd_list, spd_load, SPDWaveOps::SPDWaveOps, SPDPacked::SPDPacked, false);
 
