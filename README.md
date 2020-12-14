@@ -12,7 +12,7 @@ Generate mipmaps for specified resource (2d texture or cubemap), returning a vie
 
 DX12_EXTENSION_API void Ext_Mipmaps_Delete(Mipmap_View *mipview);
 
-Delete a mipmap view when no longer required for example, once the command list that created the mipmaps for your resource has executed.
+Delete a mipmap view when no longer required. For example, once the command list that created the mipmaps for your resource has executed.
 
 DX12_EXTENSION_API void Ext_Mipmaps_Terminate();
 
@@ -22,15 +22,6 @@ Terminate & clean up mip map extension resources. This can be done at applicatio
 Usage : Ensure your texture resources are created with the required mip chain and have D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS specified to allow mip generation to proceed.
 
 
-#To build
-
-Future work :
-
-1. Implement Vulkan equivalent.
-2. Merge into AMD trunk implementation.
-3. Optimizations.
-4. Pass in configuration options to support a wider range of uses.
-5. Update cmake files to support library mode.
 
 # Build Instructions
 
@@ -40,6 +31,16 @@ Future work :
 4. Place shader assets in your app root directory or precompile & link shader some other way - you have the source.
 
 
+
+
+Future work :
+
+1. Implement Vulkan equivalent.
+2. Merge into AMD trunk implementation.
+3. Optimizations.
+4. Pass in configuration options to support a wider range of uses.
+5. Update cmake files to support library mode.
+6. Rework to remove requirement to perform minor modifications to Cauldron or commit those changes to Cauldron.
 
 
 
